@@ -2,6 +2,7 @@ require 'securerandom'
 
 class Cart < ApplicationRecord
   has_many :orders
+  has_many :products, :through => :orders
 
   validates :guid, :status, presence: true
 
