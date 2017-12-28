@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_228_131_459) do
-  create_table 'carts', force: :cascade do |t|
-    t.string 'guid', null: false
-    t.integer 'status', default: 0, null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['guid'], name: 'index_carts_on_guid'
+ActiveRecord::Schema.define(version: 20171228141035) do
+
+  create_table "carts", force: :cascade do |t|
+    t.string "guid", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["guid"], name: "index_carts_on_guid"
   end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_products_on_name"
+  end
+
 end
