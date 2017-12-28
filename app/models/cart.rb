@@ -1,6 +1,8 @@
 require 'securerandom'
 
 class Cart < ApplicationRecord
+  has_many :orders
+
   validates :guid, :status, presence: true
 
   enum status: %i[open payment closed]
